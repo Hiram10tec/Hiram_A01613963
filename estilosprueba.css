@@ -1,0 +1,18 @@
+
+/* Selector de etiquetas */
+th {
+    color:brown;
+}
+
+/* Selector de clase */
+.verde {
+    color:green;
+}
+
+
+/* Selector de id */
+#pekkas {
+    color:hotpink;
+}
+
+
