@@ -15,4 +15,19 @@ th {
     color:hotpink;
 }
 
+    table {
+        border-collapse: collapse;
+        width: auto; 
+        margin: 0 auto; 
+        margin-top: 10px;
+    }
 
+    th, td {
+        border: 3px solid black;
+        padding: 8px; 
+        text-align: left;
+    }
+
+    th {
+        background-color: #f2f2f2;
+    }
