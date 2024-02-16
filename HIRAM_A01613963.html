@@ -1,31 +1,229 @@
 <!DOCTYPE html>
 <html>
+    
     <head>
+        
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
         <title>Clash of Clans</title>
-        <link rel="stylesheet" href="estilosprueba.css">
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.4/css/bulma.min.css">
+        <nav class="navbar" role="navigation" aria-label="main navigation">
+            <div class="navbar-brand">
+              <a class="navbar-item" href="https://bulma.io">
+                <img src="data:image/jpeg;base64,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" width="112" height="28">
+              </a>
+          
+              <a role="button" class="navbar-burger" aria-label="menu" aria-expanded="false" data-target="navbarBasicExample">
+                <span aria-hidden="true"></span>
+                <span aria-hidden="true"></span>
+                <span aria-hidden="true"></span>
+              </a>
+            </div>
+          
+            <div id="navbarBasicExample" class="navbar-menu">
+              <div class="navbar-start">
+                <a class="navbar-item">
+                  Home
+                </a>
+          
+                <a class="navbar-item">
+                  Documentation
+                </a>
+          
+                <div class="navbar-item has-dropdown is-hoverable">
+                  <a class="navbar-link">
+                    More
+                  </a>
+          
+                  <div class="navbar-dropdown">
+                    <a class="navbar-item">
+                      About
+                    </a>
+                    <a class="navbar-item">
+                      Jobs
+                    </a>
+                    <a class="navbar-item">
+                      Contact
+                    </a>
+                    <hr class="navbar-divider">
+                    <a class="navbar-item">
+                      Report an issue
+                    </a>
+                  </div>
+                </div>
+              </div>
+          
+              <div class="navbar-end">
+                <div class="navbar-item">
+                  <div class="buttons">
+                    <a class="button is-primary">
+                      <strong>Sign up</strong>
+                    </a>
+                    <a class="button is-light">
+                      Log in
+                    </a>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </nav>
     </head>
     <body>
-        <h1 style="color:blue">Hola Clash of Clans</h1>
-        <table>
-            <tbody>
-            <tr>
-                <td class="verde">20</td>  <td>4</td>
-            </tr>
-            <tr>
-                <td class="verde">100</td> <td>22</td>
-            </tr>
-            </tbody>
-            <thead>
+        <section class="section">
+            <h1 class="title">Hola Clash of Clans</h1>
+            <div class="columns">
+                <div class="column">
+                    <div class="card">
+                        <div class="card-image">
+                          <figure class="image is-4by3">
+                            <img src=https://static.wikia.nocookie.net/clash-of-clans/images/5/53/Arquera_info.png/revision/latest/scale-to-width-down/250?cb=20210819004854&path-prefix=es alt="Placeholder image">
+                          </figure>
+                        </div>
+                        <div class="card-content">
+                          <div class="media">
+                            <div class="media-left">
+                              <figure class="image is-48x48">
+                                <img src=https://static.wikia.nocookie.net/clash-of-clans/images/5/53/Arquera_info.png/revision/latest/scale-to-width-down/250?cb=20210819004854&path-prefix=es alt="Placeholder image">
+                              </figure>
+                            </div>
+                            <div class="media-content">
+                              <p class="title is-4">Arqueras</p>
+                              <p class="subtitle is-6">@Arqueras</p>
+                            </div>
+                          </div>
+                      
+                          <div class="content">
+                            Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+                            Phasellus nec iaculis mauris. <a>@bulmaio</a>.
+                            <a href="#">#css</a> <a href="#">#responsive</a>
+                            <br>
+                            <time datetime="2016-1-1">11:09 PM - 1 Jan 2016</time>
+                          </div>
+                        </div>
+                      </div>
+                </div>
+                <div class="column">
+                    <div class="card">
+                        <div class="card-image">
+                          <figure class="image is-4by3">
+                            <img src="https://assets.stickpng.com/images/584d91fc367b6a13e54477f4.png" alt="Placeholder image">
+                          </figure>
+                        </div>
+                        <div class="card-content">
+                          <div class="media">
+                            <div class="media-left">
+                              <figure class="image is-48x48">
+                                <img src="https://assets.stickpng.com/images/584d91fc367b6a13e54477f4.png" alt="Placeholder image">
+                              </figure>
+                            </div>
+                            <div class="media-content">
+                              <p class="title is-4">Barbaros</p>
+                              <p class="subtitle is-6">@Barbaros</p>
+                            </div>
+                          </div>
+                      
+                          <div class="content">
+                            Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+                            Phasellus nec iaculis mauris. <a>@bulmaio</a>.
+                            <a href="#">#css</a> <a href="#">#responsive</a>
+                            <br>
+                            <time datetime="2016-1-1">11:09 PM - 1 Jan 2016</time>
+                          </div>
+                        </div>
+                      </div>
+                </div>
+                <div class="column">
+                    <div class="card">
+                        <div class="card-image">
+                          <figure class="image is-4by3">
+                            <img src="https://static.wikia.nocookie.net/clashofclans/images/1/14/Wizard_info.png/revision/latest/scale-to-width-down/250?cb=20170927230801" alt="Placeholder image">
+                          </figure>
+                        </div>
+                        <div class="card-content">
+                          <div class="media">
+                            <div class="media-left">
+                              <figure class="image is-48x48">
+                                <img src="https://static.wikia.nocookie.net/clashofclans/images/1/14/Wizard_info.png/revision/latest/scale-to-width-down/250?cb=20170927230801" alt="Placeholder image">
+                              </figure>
+                            </div>
+                            <div class="media-content">
+                              <p class="title is-4">Mago de fuego</p>
+                              <p class="subtitle is-6">@FireWizzard</p>
+                            </div>
+                          </div>
+                      
+                          <div class="content">
+                            Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+                            Phasellus nec iaculis mauris. <a>@bulmaio</a>.
+                            <a href="#">#css</a> <a href="#">#responsive</a>
+                            <br>
+                            <time datetime="2016-1-1">11:09 PM - 1 Jan 2016</time>
+                          </div>
+                        </div>
+                      </div>
+                </div>
+                <div class="column">
+                    <div class="card">
+                        <div class="card-image">
+                          <figure class="image is-4by3">
+                            <img src="https://static.wikia.nocookie.net/clashofclans/images/5/54/P.E.K.K.A_info.png/revision/latest/scale-to-width-down/250?cb=20170927230947">
+                          </figure>
+                        </div>
+                        <div class="card-content">
+                          <div class="media">
+                            <div class="media-left">
+                              <figure class="image is-48x48">
+                                <img src="https://static.wikia.nocookie.net/clashofclans/images/5/54/P.E.K.K.A_info.png/revision/latest/scale-to-width-down/250?cb=20170927230947" alt="Placeholder image">
+                              </figure>
+                            </div>
+                            <div class="media-content">
+                              <p class="title is-4">Pekka</p>
+                              <p class="subtitle is-6">@Pekka</p>
+                            </div>
+                          </div>
+                      
+                          <div class="content">
+                            Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+                            Phasellus nec iaculis mauris. <a>@bulmaio</a>.
+                            <a href="#">#css</a> <a href="#">#responsive</a>
+                            <br>
+                            <time datetime="2016-1-1">11:09 PM - 1 Jan 2016</time>
+                          </div>
+                        </div>
+                      </div>
+                </div>
+              </div>
+            <table>
+                <tbody>
                 <tr>
-                <th>Barbaros</th> <th id="pekkas">Pekkas</th>
-            </tr>
-            </thead>
-            <tfoot>
-            <tr>
-                <td coldspan="2">Tabla de ejércitos</td> 
-            </tfoot>       
+                    <td class="verde">20</td>  <td>4</td>
+                </tr>
+                <tr>
+                    <td class="verde">100</td> <td>22</td>
+                </tr>
+                </tbody>
+                <thead>
+                    <tr>
+                    <th>Barbaros</th> <th id="pekkas">Pekkas</th>
+                </tr>
+                </thead>
+                <tfoot>
+                <tr>
+                    <td coldspan="2">Tabla de ejércitos</td> 
+                </tfoot>       
+    
+            </table>
+            <div class="container"></div></section>
+<!script src="intro_js.js"><!/script>
 
-        </table>
-<script src="intro_js.js"></script>
 </body>
+<footer class="footer">
+    <div class="content has-text-centered">
+      <p>
+        <strong>Bulma</strong> by <a href="https://jgthms.com">Jeremy Thomas</a>. The source code is licensed
+        <a href="http://opensource.org/licenses/mit-license.php">MIT</a>. The website content
+        is licensed <a href="http://creativecommons.org/licenses/by-nc-sa/4.0/">CC BY NC SA 4.0</a>.
+      </p>
+    </div>
+  </footer>
 </html>
