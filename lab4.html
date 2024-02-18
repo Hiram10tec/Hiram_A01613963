@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="es">  
+    <head>
+        <meta charset="UTF-8">
+    <title>Lab 4</title>
+    <link rel="stylesheet"  href="estiloslab1-2-3.css">
+</head>
+<body>
+    <div style="text-align: center;"><strong>Tabla de cuadrados y cubos</strong></div>
+    <script>
+        let num = prompt("Ingresa un número");
+        document.write("<table border='1'>");
+        document.write("<tr><th>Número</th><th>Al cuadrado (^2)</th><th>Al cubo (^3)</th></tr>");
+        
+        for (let i = 1; i <= num; i++) {
+            document.write("<tr><td>" + i + "</td><td>" + i**2 + "</td><td>" + i**3 + "</td></tr>");
+        }
+
+        document.write("</table>");
+    </script><br><br>
+
+    <div style="text-align: center;"><strong>Suma de 2 números aleatorios</strong></div>
+    <script>
+        function veriresp(usuario, correcta) {
+        return parseInt(usuario) === correcta ? "Correcta" : "Incorrecta";}
+        let num1 = Math.floor(Math.random() * 10) + 1;
+        let num2 = Math.floor(Math.random() * 10) + 1;
+        let IT = new Date().getTime();
+        let respU = prompt("¿Cuál es el resultado de la suma: " + num1 + " + " + num2 + "?");
+        let resulCorrecto = num1 + num2;
+
+        console.assert(parseInt(respU) === resulCorrecto, "Respuesta incorrecta");
+        
+        let FT = new Date().getTime();
+        let tiempoTrans = (FT - IT) / 1000;
+        document.write("Tu respuesta fue: " + veriresp(respU, resulCorrecto) + "<br>");
+        document.write("El tiempo de respuesta fue de: " + tiempoTrans + " segundos");
+        </script><br><br>
+    <div style="text-align: center;"><strong>Contador</strong></div>
+    <script>
+        function contador() {
+            let contador = 0;
+            return function() {
+                return ++contador;
+            }
+        }
+
+        let contador1 = contador();
+        let contador2 = contador();
+
+        console.log(contador1());
+        console.log(contador1());
+        console.log(contador1());
+        console.log(contador2());
+        console.log(contador2());
+        console.log(contador2());
+    </script><br><br>
+
+    <div style="text-align: center;"><strong>Promedio de matriz</strong></div>
+    <script>
+        function promedios(matriz) {
+            let promediosArray = [];
+
+            for (let fila of matriz) {
+                let suma = fila.reduce((total, num) => total + num, 0);
+                let promedio = suma / fila.length;
+                promediosArray.push(promedio);
+            }
+
+            return promediosArray;
+        }
+
+        // Prueba 
+        let matriz = [
+            [6, 8, 1],
+            [2, 5, 9],
+            [4, 7, 3]
+        ];
+    
+        let resulPromedios = promedios(matriz);
+        console.log(resulPromedios); 
+        document.write("La matriz es: " + matriz);
+        document.write("Los promedios de la matriz"+ "son: " + resulPromedios);
+
+    </script>
+    <div style="text-align: center;"><strong>Número invertido</strong></div>
+    <script>
+        function inverso(numero) {
+    let numeroInverso = parseInt(numero.toString().split("").reverse().join(""));
+    return numeroInverso;
+}
+
+// Prueba
+let cifra = 736293;
+let resulInverso = inverso(cifra);
+console.log(resulInverso); 
+
+document.write("El número " + cifra + ", invertido es: " + resulInverso);
+
+    </script>
+
+<div style="text-align: center;"><strong>Preguntas de laboratorio 4</strong></div>
+<table>
+    <tr>
+        <td>1. ¿Qué diferencias y semejanzas hay entre Java y JavaScript?<br>
+            Las diferencias entre Java y JavaScript son: <br>
+            <ul>
+                <li>Aunque los dos son lenguajes de programación orientado a objetos, JavaScript esta basado en prototipos y multi-paradigma.</li>
+                <li>Java es un lenguaje de programación compilado, mientras que JavaScript es un lenguaje de programación interpretado.</li>
+            </ul>
+            Las semejanzas entre Java y JavaScript son: <br>
+            <ul>
+                <li>Los dos sirven para desarrollar aplicaciones web o móviles.</li>
+                <li>Los dos son lenguajes de programación de alto nivel.</li>
+            </td>
+    </tr>
+    <tr>
+        <td>2. ¿Qué métodos tiene el objeto Date? (Menciona al menos 5*)<br>
+            <ul>
+                <li>getDate()</li>
+                <li>getDay()</li>
+                <li>getFullYear()</li>
+                <li>getHours()</li>
+                <li>getMilliseconds()</li>
+            </ul>
+        </td>
+    </tr>
+    <tr>
+        <td>3. ¿Qué métodos tienen los arreglos? (Menciona al menos 5*)<br>
+            <ul>
+                <li>concat()</li>
+                <li>copyWithin()</li>
+                <li>entries()</li>
+                <li>every()</li>
+                <li>fill()</li>
+            </ul>
+        </td>
+    </tr>
+    <tr>
+        <td>4. ¿Cómo se declara una variable con alcance local dentro de una función?<br>
+            Se puede declarar con let o const.
+        </td>
+    </tr>
+    <tr>
+        <td>5. ¿Qué implicaciones tiene utilizar variables globales dentro de funciones?<br>
+            Las variables globales pueden ser modificadas por cualquier función, lo que puede causar errores en el código.
+        </td>
+    </tr>
+</html>
