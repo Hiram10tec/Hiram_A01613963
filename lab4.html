@@ -38,6 +38,33 @@
         </script><br><br>
     <div style="text-align: center;"><strong>Contador</strong></div>
     <script>
+function contador(arreglo) {
+    let countNegativos = 0;
+    let countZeros = 0;
+    let countPositivos = 0;
+
+    for (let n of arreglo) {
+        if (n < 0) {
+            countNegativos++;
+        } else if (n === 0) {
+            countZeros++;
+        } else {
+            countPositivos++;
+        }
+    }
+
+    console.log(`En el arreglo hay ${countNegativos} números negativos`);
+    console.log(`En el arreglo hay ${countZeros} ceros`);
+    console.log(`En el arreglo hay ${countPositivos} números positivos`);
+}
+
+// Ejemplo de uso
+let arreglo = [1, 2, 3, 0, -1, -2, -3];
+contador(arreglo);
+document.write("El arreglo es: " + arreglo);
+    </script>
+
+    <script>
 
     </script><br><br>
 
@@ -64,7 +91,8 @@
     
         let resulPromedios = promedios(matriz);
         console.log(resulPromedios); 
-        document.write("La matriz es: " + matriz);
+        document.write("La matriz es: " + matriz); 
+        document.write("<br>");
         document.write("Los promedios de la matriz"+ "son: " + resulPromedios);
 
     </script>
