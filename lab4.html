@@ -96,14 +96,15 @@ document.write("El arreglo es: " + arreglo);
         document.write("Los promedios de la matriz"+ "son: " + resulPromedios);
 
     </script>
+    <br><br><br>
     <div style="text-align: center;"><strong>Número invertido</strong></div>
+
     <script>
         function inverso(numero) {
     let numeroInverso = parseInt(numero.toString().split("").reverse().join(""));
     return numeroInverso;
 }
 
-// Prueba
 let cifra = 736293;
 let resulInverso = inverso(cifra);
 console.log(resulInverso); 
@@ -111,6 +112,28 @@ console.log(resulInverso);
 document.write("El número " + cifra + ", invertido es: " + resulInverso);
 
     </script>
+    <br><br><br>
+    <div style="text-align: center;"><strong>Problema seleccionado: Invertir un Texto</strong></div>
+    <script>
+function InversorTexto(texto) {
+    this.textoOriginal = texto;
+
+    this.invertirTexto = function () {
+        return this.textoOriginal.split("").reverse().join("");
+    };
+
+    this.resultado = function () {
+        document.write("<p>El texto original es: " + this.textoOriginal + "</p>");
+        document.write("<p>El texto invertido sería: " + this.invertirTexto() + "</p>");
+    };
+}
+
+let inversor = new InversorTexto("Hola buenos dias");
+
+inversor.resultado();
+
+    </script>
+    <br><br><br>
 
 <div style="text-align: center;"><strong>Preguntas de laboratorio 4</strong></div>
 <table>
