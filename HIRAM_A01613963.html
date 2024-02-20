@@ -76,7 +76,7 @@
                     <div class="card">
                         <div class="card-image">
                           <figure class="image is-4by3">
-                            <img src=https://static.wikia.nocookie.net/clash-of-clans/images/5/53/Arquera_info.png/revision/latest/scale-to-width-down/250?cb=20210819004854&path-prefix=es alt="Placeholder image">
+                            <img id="imagen_arquera" src=https://static.wikia.nocookie.net/clash-of-clans/images/5/53/Arquera_info.png/revision/latest/scale-to-width-down/250?cb=20210819004854&path-prefix=es alt="Imagen de Arquera">
                           </figure>
                         </div>
                         <div class="card-content">
@@ -88,16 +88,16 @@
                             </div>
                             <div class="media-content">
                               <p class="title is-4">Arqueras</p>
-                              <p class="subtitle is-6">@Arqueras</p>
+                              <p class="subtitle is-6">@Arqueras Lvl: <span id="nivel_arquera">1</span></p>
                             </div>
                           </div>
                       
                           <div class="content">
-                            Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-                            Phasellus nec iaculis mauris. <a>@bulmaio</a>.
-                            <a href="#">#css</a> <a href="#">#responsive</a>
-                            <br>
-                            <time datetime="2016-1-1">11:09 PM - 1 Jan 2016</time>
+                            Vida: <span id="vida_arquera">14</span> <br>
+                            Ataque: <span id="ataque_arquera">8</span> <br><br>
+                            <button id="boton_atacar_barbaro" class="button is-danger">Atacar barbaro</button> <br><br>
+                            <button id="boton_levelear_arquera" class="button is-success">Subir de nivel</button>
+
                           </div>
                         </div>
                       </div>
@@ -106,7 +106,7 @@
                     <div class="card">
                         <div class="card-image">
                           <figure class="image is-4by3">
-                            <img src="https://assets.stickpng.com/images/584d91fc367b6a13e54477f4.png" alt="Placeholder image">
+                            <img id="imagen_barbaro" src="https://assets.stickpng.com/images/584d91fc367b6a13e54477f4.png" alt="Placeholder image">
                           </figure>
                         </div>
                         <div class="card-content">
@@ -118,16 +118,16 @@
                             </div>
                             <div class="media-content">
                               <p class="title is-4">Barbaros</p>
-                              <p class="subtitle is-6">@Barbaros</p>
+                              <p class="subtitle is-6">@Barbaros Lvl: <span id="nivel_barbaro">1</span></p>
                             </div>
                           </div>
                       
                           <div class="content">
-                            Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-                            Phasellus nec iaculis mauris. <a>@bulmaio</a>.
-                            <a href="#">#css</a> <a href="#">#responsive</a>
-                            <br>
-                            <time datetime="2016-1-1">11:09 PM - 1 Jan 2016</time>
+                            Vida: <span id="vida_barbaro">20</span><br>
+                            Ataque: <span id="ataque_barbaro">12</span> <br><br>
+                            <button id="boton_atacar_arquera" class="button is-danger">Atacar arquera</button> <br><br>
+                            <button id="boton_levelear_barbaro" class="button is-success">Subir de nivel</button> 
+ 
                           </div>
                         </div>
                       </div>
@@ -226,4 +226,5 @@
       </p>
     </div>
   </footer>
+  <script src="poe.js"></script>
 </html>
