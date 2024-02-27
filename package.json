@@ -1,0 +1,26 @@
+{
+  "name": "hiram_a01613963",
+  "version": "1.0.0",
+  "description": "Proyecto compañero de la clase TC2005B grupo 1",
+  "main": "app.js",
+  "scripts": {
+    "start": "nodemon app.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Hiram10tec/Hiram_A01613963.git"
+  },
+  "keywords": [
+    "tc2005b"
+  ],
+  "author": "Hiram",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/Hiram10tec/Hiram_A01613963/issues"
+  },
+  "homepage": "https://github.com/Hiram10tec/Hiram_A01613963#readme",
+  "devDependencies": {
+    "nodemon": "^3.1.0"
+  }
+}
