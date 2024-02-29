@@ -1,4 +1,10 @@
-const fs = require("fs");
+const express = require('express');
+const path = require('path');
+const bodyParser = require('body-parser');
+const fs = require('fs');
+
+const app = express();
+const PORT = 3000;
 
 class Promedio {
     static calcularPromedio(arreglo) {
