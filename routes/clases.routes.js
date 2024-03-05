@@ -125,6 +125,8 @@ router.get('/crear', (request, response, next) => {
     response.send(html);
 });
   
+router.get("/crear", tropas_controller.get_crear);
+
 router.post('/crear', (request, response, next) => {
     console.log(request.body);
     tropas.push({

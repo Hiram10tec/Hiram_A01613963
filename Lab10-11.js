@@ -13,7 +13,7 @@ app.use(bodyParser.urlencoded({ extended: true }));
 
 // Rutas
 app.get('/', (req, res) => {
-  res.sendFile(__dirname + '/lab5-10.html');
+  res.sendFile(__dirname + '/lab5-10-11.html');
 });
 
 app.get('/ruta1', (req, res) => {
