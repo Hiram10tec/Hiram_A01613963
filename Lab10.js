@@ -28,9 +28,9 @@ app.get('/ruta3', (req, res) => {
     res.redirect('https://youtu.be/xvFZjo5PgG0?si=7O2oqwoGm6D9gAXM');
   });
 
-app.get('/ruta4', (req, res) => {
-    res.status(404).send('Error 404: Página no encontrada');
-});
+app.use('/ruta4', (req, res) => {
+    res.status(404).send('Error 404: Página no encontrada :(');
+  });
   
 
 app.post('/guardarDatos', (req, res) => {
