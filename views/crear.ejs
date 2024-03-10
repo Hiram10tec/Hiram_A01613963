@@ -1,0 +1,29 @@
+<%- include('includes/head.ejs') %>
+<h3><strong>¡Registra a tu mascota en la página!</strong></h3>
+
+<form action="/ruta5" method="get">
+</form>
+
+<form action="/guardarDatos" method="post">
+    <label for="dueño">Nombre del dueño:</label>
+    <input type="text" id="dueño" name="dueño" required>
+    <br><br><br>
+
+    <label for="nombreMascota">Nombre de tu mascota:</label>
+    <input type="text" id="nombreMascota" name="nombreMascota" required>
+    <br><br><br>
+
+    <label for="edadMascota">Edad de tu mascota:</label>
+    <input type="number" id="edadMascota" name="edadMascota" required>
+    <br><br><br>
+
+    <label for="fotoMascota">Foto de tu mascota:</label>
+    <input type="url" id="fotoMascota" name="fotoMascota" required>
+    <br><br><br>
+
+    <button type="submit" >Guardar Datos de tu Mascota</button>
+    <br><br><br>
+</form>
+
+<%- include('includes/foot.ejs') %>
+

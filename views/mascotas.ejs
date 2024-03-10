@@ -1,0 +1,21 @@
+<%- include('includes/head.ejs') %>
+<link rel="stylesheet" type="text/css" href="/estiloslab1-2-3.css">
+<h3><strong>¡Registra a tu mascota en la página!</strong></h3>
+
+<p><%= titulo %></p>
+<table>
+    <tr>
+        <th>Dueño</th>
+        <th>Nombre de tu mascota</th>
+        <th>Edad de tu mascota</th>
+        <th>Foto de tu mascota</th>
+    </tr>
+    <tr>
+        <td><%= contenido.dueño %></td>
+        <td><%= contenido.nombreMascota %></td>
+        <td><%= contenido.edadMascota %></td>
+        <td><img src="<%= contenido.fotoMascota %>"></td>
+    </tr>
+</table>
+
+<%- include('includes/foot.ejs') %>

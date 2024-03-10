@@ -6,6 +6,10 @@ router.get('/ruta3', (req, res) => {
   res.redirect('https://youtu.be/xvFZjo5PgG0?si=7O2oqwoGm6D9gAXM');
 });
 
+router.get('/ruta5', (req, res) => {
+  res.render('crear', {});
+});
+
 router.post('/guardarDatos', (req, res) => {
   const { dueño, nombreMascota, edadMascota, fotoMascota } = req.body;
 
@@ -13,27 +17,11 @@ router.post('/guardarDatos', (req, res) => {
   const datosGuardados = `Dueño: ${dueño}, Nombre: ${nombreMascota}, Edad: ${edadMascota}, Foto: ${fotoMascota}\n`;
   fs.appendFile('Registro_mascotas.txt', datosGuardados, () => {
     console.log('Datos guardados correctamente');
+    res.render('mascotas', { 
+      titulo: 'Datos guardados correctamente',
+      contenido: { dueño, nombreMascota, edadMascota, fotoMascota }
+    });
   });
-
-  const tablaHTML = `
-  <table border="1">
-    <tr>
-        <th>Dueño</th>
-        <th>Nombre de tu mascota</th>
-        <th>Edad de tu mascota</th>
-        <th>Foto de tu mascota</th>
-    </tr>
-    <tr>
-        <td>${dueño}</td>
-        <td>${nombreMascota}</td>
-        <td>${edadMascota}</td>
-        <td><img src="${fotoMascota}" alt="${nombreMascota}" style="width:100px;height:100px;"></td>
-    </tr>
-  </table>
-  `;
-
-  res.send(`<h2>Datos guardados correctamente</h2>${tablaHTML}`);
 });
-
 
 module.exports = router;

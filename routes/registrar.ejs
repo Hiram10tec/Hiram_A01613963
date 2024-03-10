@@ -1,0 +1,13 @@
+<%- include('includes/head.ejs') %>
+<h2 class="title">Registra a tu perro</h2>
+<form action="/ruta5" method="POST">
+    <label class="label" for="nombreMascota">Nombre de tu mascota</label>
+    <input class="input text" id="nombreMascota" name="nombreMascota">
+    <label class="label" for="edadMascota">Edad de tu mascota</label>
+    <input type="number" value="10" class="input text" id="edadMascota" name="edadMascota">
+    <label class="label" for="fotoMascota">Foto de tu mascota</label>
+    <input class="input text" id="fotoMascota" name="fotoMascota">
+    <br><br>
+    <input class="button is-success" type="submit" value="Crear">
+</form>
+<%- include('includes/foot.ejs') %>
