@@ -27,3 +27,4 @@ Dueño: Carlos, Nombre: Gasparin, Edad: 2, Foto: https://i.pinimg.com/236x/70/5f
 Dueño: Carlos, Nombre: Gasparin, Edad: 2, Foto: https://i.pinimg.com/236x/70/5f/a7/705fa7f1d54b5957d3d89d1a1b076df1.jpg
 Dueño: Hiram, Nombre: Luna , Edad: 3, Foto: https://cloudfront-eu-central-1.images.arcpublishing.com/prisaradiolos40/CGYG52C77NNURMA2LZLO63FGLE.jpg
 Dueño: Carlos, Nombre: Gasparin, Edad: 3, Foto: https://cloudfront-eu-central-1.images.arcpublishing.com/prisaradiolos40/CGYG52C77NNURMA2LZLO63FGLE.jpg
+Dueño: Hiram, Nombre: Chimuelo, Edad: 7, Foto: https://i.pinimg.com/236x/70/5f/a7/705fa7f1d54b5957d3d89d1a1b076df1.jpg
