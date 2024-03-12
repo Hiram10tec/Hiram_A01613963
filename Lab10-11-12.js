@@ -14,7 +14,7 @@ app.use(express.static('public'));
 app.use(express.static('IMG'));
 app.use(bodyParser.urlencoded({ extended: true }));
 
-router.get('/ruta5', (req, res) => {
+router.get('/ruta6', (req, res) => {
   res.render('');
 });
 

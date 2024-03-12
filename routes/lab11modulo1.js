@@ -16,7 +16,7 @@ router.get('/ruta3', (req, res) => {
   res.redirect('https://youtu.be/xvFZjo5PgG0?si=7O2oqwoGm6D9gAXM');
 });
 
-router.get('/ruta5', (req, res) => {
+router.get('/ruta6', (req, res) => {
   res.render('crear', {});
 });
 

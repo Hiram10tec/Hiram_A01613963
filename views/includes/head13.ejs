@@ -47,7 +47,7 @@
                             </a>
                             <hr class="navbar-divider">
                             <a class="navbar-item" href="/ruta4">
-                            Significado de lavida
+                            Significado de la vida
                             </a>
                         </div>
                     </div>
@@ -56,17 +56,23 @@
                 <div class="navbar-end">
                     <div class="navbar-item">
                         <div class="buttons">
-                            <a class="button is-primary">
-                            <strong>Registrate</strong>
-                            </a>
-                            <a class="button is-light">
-                            Inicia Sesion
-                            </a>
+                            <% if (username == '') { %>
+                                <a class="button is-primary">
+                                    <strong>Sign up</strong>
+                                </a>
+                                <a href="/users/login" class="button is-light">
+                                    Entrar
+                                </a>
+                            <% } else { %>
+                                <strong>Hola <%= username %> | &nbsp;&nbsp;</strong>
+                                <a href="/users/logout" class="button is-danger">
+                                    Salir
+                                </a>
+                            <% } %>
                         </div>
                     </div>
                 </div>
             </div>
         </nav>
-
         <section class="section">
             <div class="container">
