@@ -1,0 +1,34 @@
+<%- include('includes/head13.ejs') %>
+
+<h2 class="title">Tu equipo</h2>
+<div class="columns">
+    
+<% for (let jugador of equipo) { %>
+      
+    <div class="column">
+        <div class="card">
+            <div class="card-image">
+            <figure class="image is-4by3">
+                <img id="imagen_messi" src="<%= jugador.imagen %>" alt="Imagen de <%= jugador.nombre %>">
+            </figure>
+            </div>
+            <div class="card-content">
+            <div class="media">
+                <div class="media-left">
+                <figure class="image is-48x48">
+                    <img src="<%= jugador.imagen %>" alt="Imagen de <%= jugador.nombre %>">
+                </figure>
+                </div>
+                <div class="media-content">
+                <p class="title is-4"><%= jugador.nombre %></p>
+                <p class="subtitle is-6">Edad: <span id="edad_Jugador1"><%= jugador.edad %></span></p>
+                <p class="subtitle is-6">Posicion: <span id="posicion_Jugador1"><%= jugador.Posicion %></span></p>
+                </div>
+            </div>
+            
+            </div>
+        </div>
+    </div>
+<% } %>
+
+<%- include('includes/foot.ejs') %>

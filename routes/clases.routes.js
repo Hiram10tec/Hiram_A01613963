@@ -1,19 +1,10 @@
 const express = require('express');
-const app = express();
 const router = express.Router();
 
-const mascotasController = require('./controllers/mascotasController.js');
-const clasesRoutes = require('./routes/clases.routes.js');
+const equipoController = require('../controllers/equipo.controller');
 
-router.get('/ruta3', mascotasController.redirectToYouTube);
-router.get('/ruta5', mascotasController.renderCrear);
-router.post('/guardarDatos', mascotasController.guardarDatos);
-router.get('/mascotas', mascotasController.renderMascotas);
+router.get('/crear', equipoController.get_crear);
+router.post('/crear', equipoController.post_crear);
+router.get('/', equipoController.get_root);
 
-
-app.use('/', router);
-
-const puerto = 3000;
-app.listen(puerto, () => {
-  console.log(`La aplicación está escuchando en el puerto ${puerto}`);
-});
+module.exports = router;
