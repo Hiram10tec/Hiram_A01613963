@@ -2,7 +2,7 @@ const Jugador = require('../models/jugador.model');
 
 exports.get_crear = (request, response, next) => {
     response.render('crear', {
-    username: request.session.username || '',
+        username: request.session.username || '',
     });
 };
 
@@ -19,7 +19,10 @@ exports.post_crear = (request, response, next) => {
 
 exports.get_root = (request, response, next) => {
     console.log(request.cookies);
+    console.log(request.cookies.ultimo_jugador);
     response.render('clases', {
         equipo: Jugador.fetchAll(),
-        username: request.session.username || '',});
+        ultimo_jugador: request.cookies.ultimo_jugador || '',
+        username: request.session.username || '',
+    });
 };

@@ -1,11 +1,17 @@
 <%- include('includes/head13.ejs') %>
+<style>
+    img {
+        max-width: 100%;
+        height: auto;
+    }
+</style>
 
 <h2 class="title">Tu equipo</h2>
-<div class="columns">
+<div class="columns is-multiline">
     
 <% for (let jugador of equipo) { %>
       
-    <div class="column">
+    <div class="column is-3">
         <div class="card">
             <div class="card-image">
             <figure class="image is-4by3">
@@ -30,7 +36,18 @@
         </div>
     </div>
 <% } %>
-
-
+</div>
+<% if(ultimo_jugador != '') { %> 
+    <div>El ultimo en unirse al equipo fue <%= ultimo_jugador %>.</div><br><br><br>
+<% } %>
+<article class="message">
+    <div class="message-header">
+      <p>Preguntas Lab 14</p>
+    </div>
+    <div class="message-body">
+    <strong>¿Qué beneficios encuentras en el estilo MVC?</strong><br> El estilo MVC permite separar la lógica de negocio de la lógica de presentación, lo que permite que el código sea más fácil de mantener y de entender. Además, permite que el código sea más reutilizable y escalable.<br>
+    <strong>¿Encuentras alguna desventaja en el estilo arquitectónico MVC?</strong> <br>Una desventaja del estilo MVC es que puede ser más complejo de entender para desarrolladores que no están familiarizados con el estilo MVC.<br>
+    </div>
+  </article>
 
 <%- include('includes/foot.ejs') %>

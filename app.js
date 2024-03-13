@@ -2,10 +2,8 @@ const express = require('express');
 const app = express();
 const lab11modulo1 = require('./routes/lab11modulo1');
 
-
 app.set('view engine', 'ejs');
 app.set('views', 'views');
-
 
 const session = require('express-session');
 app.use(session({
@@ -20,7 +18,7 @@ app.use(express.static(path.join(__dirname, 'public')));
 const bodyParser = require('body-parser');
 app.use(bodyParser.urlencoded({extended: false}));
 
-app.use('/', lab11modulo1);
+app.use(lab11modulo1);
 
 //Middleware
 app.use((request, response, next) => {
@@ -28,14 +26,14 @@ app.use((request, response, next) => {
   next(); //Le permite a la petición avanzar hacia el siguiente middleware
 });
 
-const rutasClases = require('./routes/clases.routes');
-app.use('/', rutasClases);
-
 const cookieParser = require('cookie-parser');
 app.use(cookieParser());
 
 const rutasUsuarios = require('./routes/users.routes');
 app.use('/users', rutasUsuarios);
+
+const rutasClases = require('./routes/clases.routes');
+app.use('/', rutasClases);
 
 app.use((request, response, next) => {
   response.status(404);
@@ -45,3 +43,7 @@ app.use((request, response, next) => {
 app.listen(3000, () => {
   console.log('Servidor escuchando en el puerto 3001');
 });
+
+
+
+
