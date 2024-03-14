@@ -1,4 +1,4 @@
-<%- include('includes/head13.ejs') %>
+<%- include('includes/head13.ejs', {username: username}) %>
 <style>
     img {
         max-width: 100%;
@@ -47,6 +47,16 @@
     <div class="message-body">
     <strong>¿Qué beneficios encuentras en el estilo MVC?</strong><br> El estilo MVC permite separar la lógica de negocio de la lógica de presentación, lo que permite que el código sea más fácil de mantener y de entender. Además, permite que el código sea más reutilizable y escalable.<br>
     <strong>¿Encuentras alguna desventaja en el estilo arquitectónico MVC?</strong> <br>Una desventaja del estilo MVC es que puede ser más complejo de entender para desarrolladores que no están familiarizados con el estilo MVC.<br>
+    </div>
+  </article>
+
+  <article class="message">
+    <div class="message-header">
+      <p>Preguntas Lab 17</p>
+    </div>
+    <div class="message-body">
+    <strong>¿Qué ventajas tiene escribir el código SQL únicamente en la capa del modelo?</strong> <br>Una ventaja de escribir el código SQL únicamente en la capa del modelo es que se puede reutilizar el código en diferentes partes de la aplicación.<br>
+    <strong>¿Qué es SQL injection y cómo se puede prevenir?</strong><br> SQL injection es cuando alguien inserta código SQL malicioso en una consulta SQL. Para prevenir SQL injection, se pueden utilizar consultas parametrizadas o consultas preparadas.<br>
     </div>
   </article>
 

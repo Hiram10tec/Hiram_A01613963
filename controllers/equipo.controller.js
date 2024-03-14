@@ -12,17 +12,27 @@ exports.post_crear = (request, response, next) => {
         request.body.nombre, request.body.Posicion, request.body.edad, 
         request.body.imagen
     );
-    mi_jugador.save();
-    response.setHeader('Set-Cookie', 'ultimo_jugador=' + mi_jugador.nombre + '; HttpOnly');
-    response.redirect('/');
+    mi_jugador.save()
+    .then(([rows, fielData]) => {
+        response.setHeader('Set-Cookie', 'ultimo_jugador=' + mi_jugador.nombre + '; HttpOnly');
+        response.redirect('/equipo');
+    }).catch((error) => {
+        console.log(error);
+    });
 };
 
 exports.get_root = (request, response, next) => {
     console.log(request.cookies);
     console.log(request.cookies.ultimo_jugador);
-    response.render('clases', {
-        equipo: Jugador.fetchAll(),
-        ultimo_jugador: request.cookies.ultimo_jugador || '',
-        username: request.session.username || '',
+
+    Jugador.fetchAll(request.params.jugadorid).then(([rows, fieldData]) => {
+        response.render('clases', {
+            equipo: rows,
+            ultimo_jugador: request.cookies.ultimo_jugador || '',
+            username: request.session.username || '',
+        });
+    })
+    .catch((error) => {
+        console.log(error);
     });
 };
