@@ -1,11 +1,28 @@
 <%- include('includes/head13.ejs', {username: username}) %>
-<h2 class="title">Bienvenido</h2>
-<form action="/users/login" method="POST">
+
+<h2 class="title center-text"><% if (registro) { %>Registro<% } else { %>Bienvenido<% } %></h2>
+
+<% if (typeof error !== 'undefined' && error !== '') { %>
+    <div class="notification is-danger">
+        <strong><%= error %></strong>
+    </div>
+<% } %>
+
+<form class="box center-text" action="/users/<% if (registro) { %>signup<% } else { %>login<% } %>" method="POST">
+    <input type="hidden" name="_csrf" value="<%= csrfToken %>" >
     <label class="label" for="username">Nombre de usuario</label>
     <input class="input text" id="username" name="username">
+    <% if (registro) { %>
+        <label class="label" for="name">Nombre completo</label>
+        <input class="input text" id="name" name="name">
+    <% } %>
     <label class="label" for="password">Contraseña</label>
     <input class="input text" type="password" id="password" name="password">
     <br><br>
-    <input class="button is-success" type="submit" value="Entrar">
+    <input 
+    class="button <% if (registro) { %>is-success is-light<% } else { %>is-warning is-light<% } %>" 
+    type="submit" 
+    value="<% if (registro) { %>Continuar<% } else { %>Entrar<% } %>">
 </form>
+
 <%- include('includes/foot.ejs') %>

@@ -1,6 +1,7 @@
 <%- include('includes/head13.ejs') %>
 <h2 class="title">Añadir jugador al equipo</h2>
 <form action="/crear" method="POST">
+    <input type="hidden" name="_csrf" value="<%= csrfToken %>" >
     <label class="label" for="nombre">Nombre</label>
     <input class="input text" id="nombre" name="nombre">
     <label class="label" for="Posicion">Posicion:</label>

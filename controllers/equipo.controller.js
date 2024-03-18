@@ -3,6 +3,7 @@ const Jugador = require('../models/jugador.model');
 exports.get_crear = (request, response, next) => {
     response.render('crear', {
         username: request.session.username || '',
+        csrfToken: request.csrfToken(),
     });
 };
 
@@ -26,6 +27,7 @@ exports.get_root = (request, response, next) => {
     console.log(request.cookies.ultimo_jugador);
 
     Jugador.fetchAll(request.params.jugadorid).then(([rows, fieldData]) => {
+        //console.log(fieldData);
         response.render('clases', {
             equipo: rows,
             ultimo_jugador: request.cookies.ultimo_jugador || '',
@@ -35,4 +37,5 @@ exports.get_root = (request, response, next) => {
     .catch((error) => {
         console.log(error);
     });
+    
 };

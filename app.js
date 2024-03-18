@@ -8,8 +8,8 @@ app.set('views', 'views');
 const session = require('express-session');
 app.use(session({
   secret: 'mi string secreto que debe ser un string aleatorio muy largo, no como éste', 
-  resave: false, //La sesión no se guardará en cada petición, sino sólo se guardará si algo cambió 
-  saveUninitialized: false, //Asegura que no se guarde una sesión para una petición que no lo necesita
+  resave: false, 
+  saveUninitialized: false,
 }));
 
 const path = require('path');
@@ -23,11 +23,16 @@ app.use(lab11modulo1);
 //Middleware
 app.use((request, response, next) => {
   console.log('Middleware!');
-  next(); //Le permite a la petición avanzar hacia el siguiente middleware
+  next(); 
 });
 
 const cookieParser = require('cookie-parser');
 app.use(cookieParser());
+
+//Protección contra ataques de CSRF
+const csrf = require('csurf');
+const csrfProtection = csrf();
+app.use(csrfProtection); 
 
 const rutasUsuarios = require('./routes/users.routes');
 app.use('/users', rutasUsuarios);
@@ -35,12 +40,12 @@ app.use('/users', rutasUsuarios);
 const rutasClases = require('./routes/clases.routes');
 app.use('/', rutasClases);
 
-app.use((request, response, next) => {
+app.use((request, response) => {
   response.status(404);
   response.sendFile(path.join(__dirname, 'views', '404.html')); //Manda la respuesta
 });
 
-app.listen(3000, () => {
+app.listen(3002, () => {
   console.log('Servidor escuchando en el puerto 3001');
 });
 
