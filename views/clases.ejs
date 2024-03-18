@@ -1,75 +1,101 @@
-<%- include('includes/head13.ejs', {username: username}) %>
-<style>
-    img {
-        max-width: 100%;
-        height: auto;
-    }
-</style>
+<%- include('includes/head13.ejs', {
+  username: username,
+  permisos: permisos,
+}) %>
 
 <h2 class="title">Tu equipo</h2>
-<div class="columns is-multiline">
-    
+
+<% var i = 0; %>
+
 <% for (let jugador of equipo) { %>
-      
+    <% if (i % 4 === 0) { %>
+        <div class="columns is-multiline">
+    <% } %>
+
     <div class="column is-3">
         <div class="card">
             <div class="card-image">
-            <figure class="image is-4by3">
-                <img id="imagen_messi" src="<%= jugador.imagen %>" alt="Imagen de <%= jugador.nombre %>">
-            </figure>
-            </div>
-            <div class="card-content">
-            <div class="media">
-                <div class="media-left">
-                <figure class="image is-48x48">
+                <figure class="image is-4by3">
                     <img src="<%= jugador.imagen %>" alt="Imagen de <%= jugador.nombre %>">
                 </figure>
-                </div>
-                <div class="media-content">
-                <p class="title is-4"><%= jugador.nombre %></p>
-                <p class="subtitle is-6">Edad: <span id="edad_Jugador1"><%= jugador.edad %></span></p>
-                <p class="subtitle is-6">Posicion: <span id="posicion_Jugador1"><%= jugador.Posicion %></span></p>
-                </div>
             </div>
-            
+            <div class="card-content">
+                <div class="media">
+                    <div class="media-left">
+                        <figure class="image is-48x48">
+                            <img src="<%= jugador.imagen %>" alt="Imagen de <%= jugador.nombre %>">
+                        </figure>
+                    </div>
+                    <div class="media-content">
+                        <p class="title is-4"><a href="/equipo/<%= jugador.id %>"><%= jugador.nombre %></a></p>
+                        <p class="subtitle is-6">@<%= jugador.nombre %></span></p>
+                    </div>
+                </div>
+                <div class="content">
+                    Edad: <span id="edad_jugador"><%= jugador.edad %></span> <br>
+                    Posicion: <span id="Posicion"><%= jugador.Posicion %></span> <br> <br>
+                    <% for (let permiso of permisos) { %>
+                        <% if(permiso.permiso == 'editar_jugador') { %>
+                            <a href="/editar/<%= jugador.id %>" class="button is-info">Editar</a> <br> <br>
+                        <% } %>
+                    <% } %>
+                </div>
             </div>
         </div>
     </div>
+
+    <% i++; %>
+
+    <% if ((i % 4 === 0) || (i === equipo.length)) { %>
+        </div>
+    <% } %>
 <% } %>
-</div>
+
 <% if(ultimo_jugador != '') { %> 
     <div>El ultimo en unirse al equipo fue <%= ultimo_jugador %>.</div><br><br><br>
 <% } %>
+
 <article class="message">
     <div class="message-header">
-      <p>Preguntas Lab 14</p>
+        <p>Preguntas Lab 14</p>
     </div>
     <div class="message-body">
-    <strong>¿Qué beneficios encuentras en el estilo MVC?</strong><br> El estilo MVC permite separar la lógica de negocio de la lógica de presentación, lo que permite que el código sea más fácil de mantener y de entender. Además, permite que el código sea más reutilizable y escalable.<br>
-    <strong>¿Encuentras alguna desventaja en el estilo arquitectónico MVC?</strong> <br>Una desventaja del estilo MVC es que puede ser más complejo de entender para desarrolladores que no están familiarizados con el estilo MVC.<br>
+        <strong>¿Qué beneficios encuentras en el estilo MVC?</strong><br> El estilo MVC permite separar la lógica de negocio de la lógica de presentación, lo que permite que el código sea más fácil de mantener y de entender. Además, permite que el código sea más reutilizable y escalable.<br>
+        <strong>¿Encuentras alguna desventaja en el estilo arquitectónico MVC?</strong> <br>Una desventaja del estilo MVC es que puede ser más complejo de entender para desarrolladores que no están familiarizados con el estilo MVC.<br>
     </div>
-  </article>
+</article>
 
-  <article class="message">
+<article class="message">
     <div class="message-header">
-      <p>Preguntas Lab 17</p>
+        <p>Preguntas Lab 17</p>
     </div>
     <div class="message-body">
-    <strong>¿Qué ventajas tiene escribir el código SQL únicamente en la capa del modelo?</strong> <br>Una ventaja de escribir el código SQL únicamente en la capa del modelo es que se puede reutilizar el código en diferentes partes de la aplicación.<br>
-    <strong>¿Qué es SQL injection y cómo se puede prevenir?</strong><br> SQL injection es cuando alguien inserta código SQL malicioso en una consulta SQL. Para prevenir SQL injection, se pueden utilizar consultas parametrizadas o consultas preparadas.<br>
+        <strong>¿Qué ventajas tiene escribir el código SQL únicamente en la capa del modelo?</strong> <br>Una ventaja de escribir el código SQL únicamente en la capa del modelo es que se puede reutilizar el código en diferentes partes de la aplicación.<br>
+        <strong>¿Qué es SQL injection y cómo se puede prevenir?</strong><br> SQL injection es cuando alguien inserta código SQL malicioso en una consulta SQL. Para prevenir SQL injection, se pueden utilizar consultas parametrizadas o consultas preparadas.<br>
     </div>
-  </article>
+</article>
 
-  <article class="message">
+<article class="message">
     <div class="message-header">
-      <p>Preguntas Lab 18</p>
+        <p>Preguntas Lab 18</p>
     </div>
     <div class="message-body">
-    <strong> ¿Qué otras formas de autentificación existen?</strong> <br>Existen otras formas de autentificación como autentificación basada en tokens, autentificación basada en certificados, autentificación basada en biometría, entre otras.<br>
+        <strong> ¿Qué otras formas de autentificación existen?</strong> <br>Existen otras formas de autentificación como autentificación basada en tokens, autentificación basada en certificados, autentificación basada en biometría, entre otras.<br>
     </div>
-  </article>
+</article>
 
- 
+<article class="message">
+    <div class="message-header">
+        <p>Preguntas Lab 19</p>
+    </div>
+    <div class="message-body">
+        <strong>¿En qué consiste el control de acceso basado en roles?</strong> <br>El control de acceso basado en roles (RBAC) asigna permisos a roles en lugar de usuarios individuales, simplificando la administración de permisos. <br>
+        <strong>Investiguen y describan 2 sistemas, uno que aplique RBAC y uno que no. Realicen un análisis de las ventajas y desventajas de cada uno con respecto al control de acceso.</strong><br>Un sistema RBAC es Oracle Identity Management. Entre sus ventajas esta la simplificación de la administración y seguridad mejorada. Un sistema sin RBAC como uno basado en listas de control de acceso (ACL), ofrece flexibilidad pero puede ser más complicado de gestionar y menos seguro.<br>
+    </div>
+</article>
+
+
+
 
 
 <%- include('includes/foot.ejs') %>

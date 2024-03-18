@@ -22,13 +22,23 @@
             
             <div id="navbarBasicExample" class="navbar-menu">
                 <div class="navbar-start">
-                    <a class="navbar-item" href="/">
-                    Inicio
-                    </a>
-            
-                    <a class="navbar-item" href="/crear">
-                    Añadir a tu equipo
-                    </a>
+                    <% for(permiso of permisos) { %>
+                        <% if(permiso.permiso == 'ver_club') { %>
+                        <a class="navbar-item" href="/equipo">
+                        Equipo
+                        </a>
+                        <% } %>
+                    <% } %>
+                
+                    <% for(permiso of permisos) { %>
+                        <% if(permiso.permiso == 'crear_jugador') { %>
+                        <a class="navbar-item" href="/crear">
+                        Crear
+                        </a>
+                        <% } %>
+                    <% } %>
+                    
+                </div>
             
                     <div class="navbar-item has-dropdown is-hoverable">
                         <a class="navbar-link">

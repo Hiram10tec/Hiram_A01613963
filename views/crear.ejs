@@ -1,17 +1,32 @@
-<%- include('includes/head13.ejs') %>
-<h2 class="title">Añadir jugador al equipo</h2>
+<%- include('includes/head13.ejs', {
+    username: username,
+    permisos: permisos,
+}) %>
+
+<% if(editar) { %>
+<h2 class="title">Editar</h2>  
+<% } else { %>
+<h2 class="title">Crear una nueva clase</h2>
+<% } %>
+
+<% if(editar) { %>
+<form action="/editar" method="POST"> 
+<% } else { %>
 <form action="/crear" method="POST">
+<% } %>
     <input type="hidden" name="_csrf" value="<%= csrfToken %>" >
+<% if(editar) { %>
+    <input type="hidden" id="id" name="id" value="<%= jugador.id %>" > 
+<% } %>
     <label class="label" for="nombre">Nombre</label>
-    <input class="input text" id="nombre" name="nombre">
-    <label class="label" for="Posicion">Posicion:</label>
-    <input class="input text" id="Posicion" name="Posicion">
+    <input class="input text" id="nombre" name="nombre" value="<% if(editar) { %><%= jugador.nombre %><% } %>">
+    <label class="label" for="Posicion">Posicion</label>
+    <input class="input text" id="Posicion" name="Posicion" value="<% if(editar) { %><%= jugador.Posicion %><% } %>">
     <label class="label" for="edad">Edad</label>
-    <input type="number" value="10" class="input text" id="edad" name="edad">
+    <input type="number" value="<% if(editar) { %><%= jugador.edad %><% } else { %>10<% } %>" class="input text" id="edad" name="edad">
     <label class="label" for="imagen">Imagen</label>
-    <input class="input text" id="imagen" name="imagen">
+    <input class="input text" id="imagen" name="imagen" value="<% if(editar) { %><%= jugador.imagen %><% } %>">
     <br><br>
-    <input class="button is-success" type="submit" value="Crear">
+    <input class="button is-success" type="submit" value="Guardar">
 </form>
 <%- include('includes/foot.ejs') %>
-

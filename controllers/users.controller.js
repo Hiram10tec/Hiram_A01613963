@@ -9,6 +9,7 @@ exports.get_login = (request, response, next) => {
       registro: false,
       csrfToken: request.csrfToken(),
       error: error, 
+      permisos: request.session.permisos || [],
   });
 };
 
@@ -20,9 +21,17 @@ exports.post_login = (request, response, next) => {
               bcrypt.compare(request.body.password, usuario.password)
                   .then((doMatch) => {
                       if(doMatch) {
+                            Usuario.getPermisos(usuario.username)
+                            .then(([permisos, fieldData]) => {
+                            console.log(permisos);
+                            request.session.permisos = permisos;
                             request.session.username = usuario.name;
                             request.session.isLoggedIn = true;
                             response.redirect('/equipo');
+                        })
+                        .catch((error) => {
+                            console.log(error);
+                        });
                         } else {
                             request.session.error = "Usuario y/o contraseña incorrectos";
                             response.redirect('/users/login');
@@ -52,6 +61,8 @@ exports.get_signup = (request, response, next) => {
         username: request.session.username || '',
         registro: true,
         csrfToken: request.csrfToken(),
+        permisos: request.session.permisos || [],
+        error: error,
     });
 };
 
@@ -65,5 +76,7 @@ exports.post_signup = (request, response, next) => {
         })
         .catch((error) => {
             console.log(error);
+            request.session.error = 'Nombre de usuario no disponible';
+            response.redirect('/users/signup');
         });
 };

@@ -4,6 +4,8 @@ exports.get_crear = (request, response, next) => {
     response.render('crear', {
         username: request.session.username || '',
         csrfToken: request.csrfToken(),
+        permisos: request.session.permisos || [],
+        editar: false,
     });
 };
 
@@ -32,6 +34,7 @@ exports.get_root = (request, response, next) => {
             equipo: rows,
             ultimo_jugador: request.cookies.ultimo_jugador || '',
             username: request.session.username || '',
+            permisos: request.session.permisos || [],
         });
     })
     .catch((error) => {
@@ -39,3 +42,29 @@ exports.get_root = (request, response, next) => {
     });
     
 };
+
+exports.get_editar = (request, response, next) => {
+    Jugador.fetchOne(request.params.id)
+        .then(([equipo, fieldData]) => {
+            response.render('crear', {
+                username: request.session.username || '',
+                csrfToken: request.csrfToken(),
+                permisos: request.session.permisos || [],
+                editar: true,
+                jugador: equipo[0],
+            });
+        })
+        .catch((error) => {
+            console.log(error)
+        });
+};
+
+exports.post_editar = (request, response, next) => {
+    Jugador.update(request.body.id, request.body.nombre, 
+        request.body.Posicion, request.body.edad, request.body.imagen)
+        .then(([rows, fieldData]) => {
+            response.redirect('/equipo');
+        })
+        .catch((error) => {console.log(error)});
+};
+

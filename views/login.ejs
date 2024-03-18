@@ -1,5 +1,7 @@
-<%- include('includes/head13.ejs', {username: username}) %>
-
+<%- include('includes/head13.ejs', {
+    username: username,
+    permisos: permisos,
+}) %>
 <h2 class="title center-text"><% if (registro) { %>Registro<% } else { %>Bienvenido<% } %></h2>
 
 <% if (typeof error !== 'undefined' && error !== '') { %>

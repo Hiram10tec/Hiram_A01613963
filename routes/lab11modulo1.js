@@ -20,18 +20,5 @@ router.get('/ruta6', (req, res) => {
   res.render('crear', {});
 });
 
-router.post('/guardarDatos', (req, res) => {
-  const { dueño, nombreMascota, edadMascota, fotoMascota } = req.body;
-
-  // Guardar los datos en un archivo de texto
-  const datosGuardados = `Dueño: ${dueño}, Nombre: ${nombreMascota}, Edad: ${edadMascota}, Foto: ${fotoMascota}\n`;
-  fs.appendFile('Registro_mascotas.txt', datosGuardados, () => {
-    console.log('Datos guardados correctamente');
-    res.render('mascotas', { 
-      titulo: 'Datos guardados correctamente',
-      contenido: { dueño, nombreMascota, edadMascota, fotoMascota }
-    });
-  });
-});
 
 module.exports = router;
