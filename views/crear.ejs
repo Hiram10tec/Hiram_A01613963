@@ -10,9 +10,9 @@
 <% } %>
 
 <% if(editar) { %>
-<form action="/editar" method="POST"> 
+<form action="/editar" method="POST" enctype="multipart/form-data"> 
 <% } else { %>
-<form action="/crear" method="POST">
+<form action="/crear" method="POST" enctype="multipart/form-data">
 <% } %>
     <input type="hidden" name="_csrf" value="<%= csrfToken %>" >
 <% if(editar) { %>
@@ -25,7 +25,7 @@
     <label class="label" for="edad">Edad</label>
     <input type="number" value="<% if(editar) { %><%= jugador.edad %><% } else { %>10<% } %>" class="input text" id="edad" name="edad">
     <label class="label" for="imagen">Imagen</label>
-    <input class="input text" id="imagen" name="imagen" value="<% if(editar) { %><%= jugador.imagen %><% } %>">
+    <input type="file" class="input text" id="imagen" name="imagen" value="<% if(editar) { %><%= jugador.imagen %><% } %>">
     <br><br>
     <input class="button is-success" type="submit" value="Guardar">
 </form>

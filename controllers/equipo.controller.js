@@ -11,9 +11,10 @@ exports.get_crear = (request, response, next) => {
 
 exports.post_crear = (request, response, next) => {
     console.log(request.body);
+    console.log(request.file);
     const mi_jugador = new Jugador(
         request.body.nombre, request.body.Posicion, request.body.edad, 
-        request.body.imagen
+        request.file.filename
     );
     mi_jugador.save()
     .then(([rows, fielData]) => {
@@ -28,7 +29,7 @@ exports.get_root = (request, response, next) => {
     console.log(request.cookies);
     console.log(request.cookies.ultimo_jugador);
 
-    Jugador.fetchAll(request.params.jugadorid).then(([rows, fieldData]) => {
+    Jugador.fetch(request.params.jugadorid).then(([rows, fieldData]) => {
         //console.log(fieldData);
         response.render('clases', {
             equipo: rows,

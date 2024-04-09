@@ -4,8 +4,7 @@
   "description": "Proyecto compañero de la clase TC2005B grupo 1",
   "main": "app.js",
   "scripts": {
-    "start": "nodemon app.js",
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "start": "nodemon app.js"
   },
   "repository": {
     "type": "git",
@@ -32,6 +31,7 @@
     "ejs": "^3.1.9",
     "express": "^4.18.3",
     "express-session": "^1.18.0",
+    "multer": "^1.4.5-lts.1",
     "mysql2": "^3.9.2",
     "path": "^0.12.7"
   }

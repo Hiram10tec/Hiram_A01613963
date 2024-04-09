@@ -36,11 +36,18 @@ module.exports = class Jugador {
         return db.execute('SELECT * FROM jugador WHERE id = ?', [id]);
     }
 
-    static update(id, nombre, edad, Posicion, imagen) {
-        return db.execute(`UPDATE jugador SET 
-            nombre = ?, Posicion = ?, edad = ?,  imagen = ? 
-            WHERE id = ?`, 
-            [nombre, edad, Posicion, imagen, id]);
+    static update(id, nombre, Posicion, edad, imagen) {
+        nombre = nombre || null;
+        Posicion = Posicion || null;
+        edad = edad || null;
+        imagen = imagen || null;
+        
+        return db.execute(
+            `UPDATE jugador SET nombre = ?, Posicion = ?, edad = ?, imagen = ? WHERE id = ?`, 
+            [nombre, Posicion, edad, imagen, id]
+        );
     }
+    
+    
 
 }

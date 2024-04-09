@@ -16,6 +16,9 @@ router.get('/ruta3', (req, res) => {
   res.redirect('https://youtu.be/xvFZjo5PgG0?si=7O2oqwoGm6D9gAXM');
 });
 
+router.get('/ruta4', (req, res) => {
+  res.sendFile(path.join(__dirname, '../404.html'));
+});
 router.get('/ruta6', (req, res) => {
   res.render('crear', {});
 });
