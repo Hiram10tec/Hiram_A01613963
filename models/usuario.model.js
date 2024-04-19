@@ -11,26 +11,27 @@ module.exports = class Usuario {
     }
 
     //Este método servirá para guardar de manera persistente el nuevo objeto. 
-    save() {
-        return bcrypt.hash(this.password, 12)
-            .then(async (password_cifrado) => {
-                try {
-                    await db.execute(
-                        `INSERT INTO usuario (username, name, password) 
-                        VALUES (?, ?, ?)`, 
-                        [this.username, this.name, password_cifrado]
-                    );
+//Este método servirá para guardar de manera persistente el nuevo objeto. 
+save() {
+    return bcrypt.hash(this.password, 12)
+        .then(async (password_cifrado) => {
+            try {
+                await db.execute(
+                    'CALL registrarUsuario(?, ?, ?)', 
+                    [this.username, this.name, password_cifrado]
+                );
+                return db.execute(
+                    'INSERT INTO asigna (username, idrol) VALUES (?, 1)', 
+                    [this.username]
+                );
+            } catch(error) {
+                console.log(error);
+                throw Error('Usuario duplicado');
+            }
+        });
+}
 
-                    return db.execute(
-                        'INSERT INTO asigna (username, idrol) VALUES (?, 1)', 
-                        [this.username]
-                    );
-                } catch(error) {
-                    console.log(error);
-                    throw Error('Usuario duplicado');
-                }
-            });
-    }
+
 
     static fetchOne(username) {
         return db.execute('Select * from usuario WHERE username = ?', [username]);

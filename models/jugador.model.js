@@ -12,9 +12,21 @@ module.exports = class Jugador {
 
 
     save() {
-        return db.execute(
-            'INSERT INTO jugador (nombre, Posicion, edad, imagen) VALUES (?, ?, ?, ?)',
-            [this.nombre, this.Posicion, this.edad, this.imagen]);
+        return new Promise((resolve, reject) => {
+            db.query(
+                'CALL insertjugador(?, ?, ?, ?)',
+                [this.nombre, this.Posicion, this.edad, this.imagen],
+                (error, results, fields) => {
+                    if (error) {
+                        console.error('Error al llamar al procedimiento almacenado:', error);
+                        reject(error);
+                        return;
+                    }
+                    console.log('Procedimiento almacenado ejecutado correctamente:', results);
+                    resolve(results);
+                }
+            );
+        });
     }
 
 
@@ -41,12 +53,13 @@ module.exports = class Jugador {
         Posicion = Posicion || null;
         edad = edad || null;
         imagen = imagen || null;
-        
+    
         return db.execute(
-            `UPDATE jugador SET nombre = ?, Posicion = ?, edad = ?, imagen = ? WHERE id = ?`, 
-            [nombre, Posicion, edad, imagen, id]
+            'CALL actualizarJugador(?, ?, ?, ?, ?)', 
+            [id, nombre, Posicion, edad, imagen]
         );
     }
+    
     
     
 
